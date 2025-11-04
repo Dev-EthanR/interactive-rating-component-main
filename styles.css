@@ -97,8 +97,8 @@ body {
   cursor: pointer;
 }
 .review-content .numbers:active {
-  background-color: hsl(25, 97%, 53%);
-  color: hsl(213, 19%, 18%);
+  background-color: hsl(25, 97%, 53%) !important;
+  color: hsl(213, 19%, 18%) !important;
 }
 @media (min-width: 600px) {
   .review-content .numbers {
@@ -109,8 +109,8 @@ body {
   }
 }
 .review-content .selected {
-  background-color: hsl(25, 97%, 53%);
-  color: hsl(213, 19%, 18%);
+  background-color: hsl(25, 97%, 53%) !important;
+  color: hsl(213, 19%, 18%) !important;
 }
 
 .btn {

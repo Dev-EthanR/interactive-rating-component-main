@@ -90,8 +90,8 @@ body {
     }
 }
 @mixin selected {
-    background-color: map.get($colors, "primary");
-    color: map.get($colors, 'grey-900');
+    background-color: map.get($colors, "primary") !important;
+    color: map.get($colors, 'grey-900') !important;
 }
 .review-content {
     display: flex;
