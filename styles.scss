@@ -1,3 +1,6 @@
+@use "sass:map";
+@import url('https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100..900;1,100..900&display=swap');
+
 
 *, *::before, *::after {
     box-sizing: border-box;
@@ -9,3 +12,144 @@ html {
     font-size: 62.5%;
 }
 
+$colors: (
+    "primary": hsl(25deg, 97%, 53%),
+    "gradient": linear-gradient(to bottom, hsl(215deg, 20%, 17%), hsl(216deg, 24%, 12%)),
+    "grey-950": hsl(216deg, 12%, 8%),
+    "grey-900": hsl(213deg, 19%, 18%),
+    "text": hsl(217deg, 12%, 63%),
+    "white": #fff
+);
+
+$text-heading-size: 2.4rem;
+$text-body-size: 1.4rem;
+$font-family: "Overpass", sans-serif;
+$border-radius: 15px;
+
+@mixin centerContent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin squaredContent($size) {
+    height: $size;
+    width: $size;
+    background-color: map.get($colors, "grey-900");
+    border-radius: 50%;
+}
+
+h1 {
+    font-size: $text-heading-size;
+    font-weight: 600;
+    color: map.get($colors, "white");
+    @media (min-width: 600px) {
+        font-size: $text-heading-size * 1.2;
+    }
+}
+
+body {
+    background-color: map.get($colors, "grey-950");
+    font-size: $text-body-size;
+    font-family: $font-family;
+    color: map.get($colors, "text");
+    height: 100vh;
+    @include centerContent;
+    @media (min-width: 600px) {
+        font-size: $text-body-size * 1.1;
+    }
+}
+
+.container {
+    background: map.get($colors, "gradient");
+    border-radius: $border-radius;
+    width: 100%;
+    padding: 2.4rem;
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
+    .content {    
+        h1, p {
+            margin-bottom: 1.6rem;
+        }
+    }
+    @media (min-width: 600px) {
+       max-width: 410px;
+       gap: 3.2rem;
+       border-radius: $border-radius * 2;
+    }
+}
+
+.icon {
+    @include squaredContent(40px);
+    @include centerContent;
+    padding: 1.6rem;
+    @media (min-width: 600px) {
+        @include squaredContent(48px);
+    }
+}
+
+.review-content {
+    display: flex;
+    justify-content: space-between;
+    gap: 1.6rem;
+    .numbers {
+        @include squaredContent(40px);
+        @include centerContent;
+        font-weight: 600;
+        &:hover {
+            background-color: map.get($colors, "white");
+            color: map.get($colors, 'grey-900');
+            cursor: pointer;
+        }
+        &:active, .selected {
+            background-color: map.get($colors, "primary");
+            color: map.get($colors, 'grey-900');
+        }
+        @media (min-width: 600px) {
+            @include squaredContent(48px);
+        }
+    }
+}
+
+.btn {
+    border: none;
+    background-color: map.get($colors, "primary");
+    text-transform: uppercase;
+    border-radius: 22.5px;
+    padding: 1.6rem;
+    letter-spacing: 1.8px;
+    font-weight: 600;
+    font-size: $text-body-size;
+    cursor: pointer;
+    &:hover {
+        background-color: map.get($colors, "white");
+    }
+}
+
+
+
+.result-section {
+    display: none;
+    text-align: center;
+    padding: 3.2rem 2.4rem;
+    @extend .container;
+    .container {
+        width: 100%;
+        gap: 2.4rem;
+        max-width: 350px;
+    }
+    img {
+        max-width: 140px;
+        align-self: center;
+    }
+    .result {
+        color: map.get($colors, "primary");
+        background-color: map.get($colors, "grey-900");
+        width: fit-content;
+        align-self: center;
+        padding: 0.8rem 1.6rem;
+        border-radius: 22.5px;
+    } 
+}
