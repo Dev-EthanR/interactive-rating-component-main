@@ -89,7 +89,10 @@ body {
         @include squaredContent(48px);
     }
 }
-
+@mixin selected {
+    background-color: map.get($colors, "primary");
+    color: map.get($colors, 'grey-900');
+}
 .review-content {
     display: flex;
     justify-content: space-between;
@@ -103,13 +106,16 @@ body {
             color: map.get($colors, 'grey-900');
             cursor: pointer;
         }
-        &:active, .selected {
-            background-color: map.get($colors, "primary");
-            color: map.get($colors, 'grey-900');
+        &:active {
+           @include selected;
         }
+        
         @media (min-width: 600px) {
             @include squaredContent(48px);
         }
+    }
+    .selected {
+        @include selected;
     }
 }
 

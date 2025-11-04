@@ -96,7 +96,7 @@ body {
   color: hsl(213, 19%, 18%);
   cursor: pointer;
 }
-.review-content .numbers:active, .review-content .numbers .selected {
+.review-content .numbers:active {
   background-color: hsl(25, 97%, 53%);
   color: hsl(213, 19%, 18%);
 }
@@ -107,6 +107,10 @@ body {
     background-color: hsl(213, 19%, 18%);
     border-radius: 50%;
   }
+}
+.review-content .selected {
+  background-color: hsl(25, 97%, 53%);
+  color: hsl(213, 19%, 18%);
 }
 
 .btn {
