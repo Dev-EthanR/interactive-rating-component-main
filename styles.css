@@ -116,6 +116,7 @@ body {
 .btn {
   border: none;
   background-color: hsl(25, 97%, 53%);
+  color: hsl(213, 19%, 18%);
   text-transform: uppercase;
   border-radius: 22.5px;
   padding: 1.6rem;

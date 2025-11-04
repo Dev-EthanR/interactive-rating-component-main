@@ -122,6 +122,7 @@ body {
 .btn {
     border: none;
     background-color: map.get($colors, "primary");
+    color: map.get($colors, "grey-900");
     text-transform: uppercase;
     border-radius: 22.5px;
     padding: 1.6rem;
